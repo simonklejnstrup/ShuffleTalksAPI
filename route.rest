@@ -4,7 +4,7 @@ GET http://localhost:8080/users
 ###
 
 GET http://localhost:8080/user
-Content-Type: application/json
+
 
 {
     "userId": "6284a5f3c2fd93fa6b325566"

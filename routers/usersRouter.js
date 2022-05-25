@@ -36,6 +36,7 @@ router.get('/user', getUser, (req, res) => {
 // Creating one
 router.post('/user', async (req, res) => {
     const validation = req.body.validationAnswer.toLowerCase().trim()
+
     if (!validator.equals(validation, "Remo") &&
         !validator.equals(validation, "Evans") &&
         !validator.equals(validation, "Aquarian") 
