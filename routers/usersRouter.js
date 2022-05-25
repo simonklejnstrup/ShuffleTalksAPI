@@ -45,11 +45,24 @@ router.post('/user', async (req, res) => {
             return
             
         }
-
-
+        
     const user = new User({
         username: req.body.username
     })
+
+    if (!validator.isEmpty(req.body.firstname, { ignore_whitespace: true })) {
+        user.firstname = req.body.firstname
+    }
+    if (!validator.isEmpty(req.body.lastname, { ignore_whitespace: true })) {
+        user.lastname = req.body.lastname
+    }
+    if (!validator.isEmpty(req.body.city, { ignore_whitespace: true })) {
+        user.city = req.body.city
+    }
+    if (!validator.isEmpty(req.body.email, { ignore_whitespace: true })) {
+        user.email = req.body.email
+    }
+
     await encrypt(req.body.password)
         .then(encryptedPassword => { 
             user.password = encryptedPassword
