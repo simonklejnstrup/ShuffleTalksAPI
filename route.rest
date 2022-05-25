@@ -1,0 +1,159 @@
+
+GET http://localhost:8080/users
+
+###
+
+GET http://localhost:8080/user
+Content-Type: application/json
+
+{
+    "userId": "6284a5f3c2fd93fa6b325566"
+}
+###
+
+POST http://localhost:8080/user
+Content-Type: application/json
+
+{
+    "validationAnswer": "REMO",
+    "username": "Søren Jørgensen",
+    "password": "smukke"
+}
+
+###
+
+PATCH http://localhost:8080/user
+Content-Type: application/json
+
+{
+    "userId": "6284a5f3c2fd93fa6b325566",
+    "firstname": "Søren"
+}
+
+###
+
+DELETE http://localhost:8080/user
+Content-Type: application/json
+
+{
+    "userId": "6284a5f3c2fd93fa6b325566"
+}
+
+###
+
+GET http://localhost:8080/posts
+
+###
+
+
+GET http://localhost:8080/post
+Content-Type: application/json
+
+{
+    "postId": "627eabc9ab022a89e69b0331"
+}
+
+###
+
+POST http://localhost:8080/post
+Content-Type: application/json
+
+{
+    "text": "TJEK MINE FEDE TING",
+    "userId": "0001"
+}
+
+###
+
+DELETE http://localhost:8080/post
+Content-Type: application/json
+
+{
+    "postId": "6284d662370e6116e840fb1f"
+}
+
+###
+
+PATCH http://localhost:8080/post
+Content-Type: application/json
+
+{
+    "postId": "627eabc9ab022a89e69b0331",
+    "text": "God aften"
+}
+
+###
+
+DELETE http://localhost:8080/post
+Content-Type: application/json
+
+{
+    "postId": "6284d81709c9b418bc5afbce"
+}
+
+###
+
+POST http://localhost:8080/comment
+Content-Type: application/json
+
+{
+    "postId": "6288eca92f5dc7f1a8f76e4f",
+    "text": "Et andet svar",
+    "userId": "0002"
+}
+
+###
+
+PATCH http://localhost:8080/comment
+Content-Type: application/json
+
+{
+    "commentId": "6282b5e809d694780b1c5090",
+    "text": "Jeg kan faktisk bedre lide ggggggg"
+}
+
+###
+
+POST http://localhost:8080/comment/like
+Content-Type: application/json
+
+{
+    "postId": "6288eca92f5dc7f1a8f76e4f",
+    "commentId": "6288eca92f5dc7f1a8f76e50",
+    "userId": "6279158a064e0019c5fc4f2c"
+}
+
+###
+
+DELETE http://localhost:8080/comment/like
+Content-Type: application/json
+
+{
+    "postId": "6288eca92f5dc7f1a8f76e4f",
+    "commentId": "6288eca92f5dc7f1a8f76e50",
+    "userId": "6279158a064e0019c5fc4f2c"
+}
+
+###
+
+
+POST http://localhost:8080/comment/quote
+Content-Type: application/json 
+
+{
+    "postId": "6288eca92f5dc7f1a8f76e4f",
+    "quotetCommentId": "6288ed052f5dc7f1a8f76e56",
+    "quotetCommentText": "Noget helt nyt",
+    "quotetCommentUserId": "12367531267",
+    "quotedCommentUsername": "Overlord",
+    "newCommentText": "Yes sir",
+    "newCommentUserId": "3128763876123"
+}
+
+###
+
+
+
+###
+
+GET http://localhost:8080/posts
