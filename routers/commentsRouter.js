@@ -3,7 +3,7 @@ const mongoose = require('mongoose')
 const Post = require('../model/post')
 const { ObjectId } = require('mongodb');
 
-mongoose.connect(process.env.DATABASE_URL, {useNewUrlParser: true})
+mongoose.connect(process.env.MONGODB_URI, {useNewUrlParser: true} || 'mongodb://localhost/shuffletalk')
 const db = mongoose.connection
 const router = express.Router();
 

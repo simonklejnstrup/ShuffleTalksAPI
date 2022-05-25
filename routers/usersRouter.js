@@ -4,7 +4,7 @@ const mongoose = require('mongoose')
 const User = require('../model/user')
 const encrypt = require('../util/encryption')
 
-mongoose.connect(process.env.DATABASE_URL, {useNewUrlParser: true})
+mongoose.connect(process.env.MONGODB_URI, {useNewUrlParser: true} || 'mongodb://localhost/shuffletalk')
 const db = mongoose.connection
 
 const router = express.Router();
@@ -36,9 +36,9 @@ router.get('/user', getUser, (req, res) => {
 // Creating one
 router.post('/user', async (req, res) => {
     const validation = req.body.validationAnswer.toLowerCase().trim()
-    if (!validator.equals(validation, process.env.VALIDATION_ANSWER_A) &&
-        !validator.equals(validation, process.env.VALIDATION_ANSWER_B) &&
-        !validator.equals(validation, process.env.VALIDATION_ANSWER_C) 
+    if (!validator.equals(validation, "Remo") &&
+        !validator.equals(validation, "Evans") &&
+        !validator.equals(validation, "Aquarian") 
         ) {
 
             res.status(400).send("Wrong answer to validation question")

@@ -4,7 +4,7 @@ const { v4: uuidv4 } = require('uuid');
 const mongoose = require('mongoose') 
 const Post = require('../model/post')
 
-mongoose.connect(process.env.DATABASE_URL, {useNewUrlParser: true})
+mongoose.connect(process.env.MONGODB_URI, {useNewUrlParser: true} || 'mongodb://localhost/shuffletalk')
 const db = mongoose.connection
 const router = express.Router();
 
