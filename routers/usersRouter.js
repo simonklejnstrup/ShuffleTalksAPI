@@ -35,47 +35,59 @@ router.get('/user', getUser, (req, res) => {
 
 // Creating one
 router.post('/user', async (req, res) => {
+    
     const validation = req.body.validationAnswer.toLowerCase().trim()
 
-    if (!validator.equals(validation, "Remo") &&
-        !validator.equals(validation, "Evans") &&
-        !validator.equals(validation, "Aquarian") 
-        ) {
+    if (validator.equals(validation, "remo") ||
+     validator.equals(validation, "evans") ||
+      validator.equals(validation, "aquarian")) {
 
-            res.status(400).send("Wrong answer to validation question")
-            return
-            
-        }
-        
-    const user = new User({
-        username: req.body.username
-    })
-
-    if (!validator.isEmpty(req.body.firstname, { ignore_whitespace: true })) {
-        user.firstname = req.body.firstname
-    }
-    if (!validator.isEmpty(req.body.lastname, { ignore_whitespace: true })) {
-        user.lastname = req.body.lastname
-    }
-    if (!validator.isEmpty(req.body.city, { ignore_whitespace: true })) {
-        user.city = req.body.city
-    }
-    if (!validator.isEmpty(req.body.email, { ignore_whitespace: true })) {
-        user.email = req.body.email
-    }
-
-    await encrypt(req.body.password)
-        .then(encryptedPassword => { 
-            user.password = encryptedPassword
+        const user = new User({
+            username: req.body.username
         })
-        .catch(err => console.log(err));
+    
+        if (!validator.isEmpty(req.body.firstname, { ignore_whitespace: true })) {
+            user.firstname = req.body.firstname
+        }
+        if (!validator.isEmpty(req.body.lastname, { ignore_whitespace: true })) {
+            user.lastname = req.body.lastname
+        }
+        if (!validator.isEmpty(req.body.city, { ignore_whitespace: true })) {
+            user.city = req.body.city
+        }
+        if (!validator.isEmpty(req.body.email, { ignore_whitespace: true })) {
+            user.email = req.body.email
+        }
+    
+        await encrypt(req.body.password)
+            .then(encryptedPassword => { 
+                user.password = encryptedPassword
+            })
+            .catch(err => console.log(err));
+    
+        try {
+            const newUser = await user.save()
+            res.status(201).json(newUser)
+        } catch (error) {
+            res.status(400).json({message: error.message})
+        }
 
-    try {
-        const newUser = await user.save()
-        res.status(201).json(newUser)
-    } catch (error) {
-        res.status(400).json({message: error.message})
+    } else {
+        res.status(400).send("Wrong answer to validation question")
     }
+
+
+    // if (!validator.equals(validation, "remo") ||
+    //     !validator.equals(validation, "evans") ||
+    //     !validator.equals(validation, "aquarian") 
+    //     ) {
+
+    //         res.status(400).send("Wrong answer to validation question")
+    //         return
+            
+    //     }
+        
+    
 })
 
 
