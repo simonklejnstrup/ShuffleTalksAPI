@@ -37,6 +37,7 @@ router.post('/post', async (req, res) => {
     const comment = {
         text: req.body.text,
         userId: req.body.userId,
+        username: req.body.username
     }
     post.comments.push(comment)
     try {

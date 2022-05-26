@@ -4,7 +4,8 @@ const mongoose = require("mongoose")
 
 const commentsSchema = new mongoose.Schema({
     
-    userId: String, 
+    userId: String,
+    username: String, 
     text: String,
     quote: { _id: String, username: String, userId: String, text: String },
     likes: [{userId: String}] },
