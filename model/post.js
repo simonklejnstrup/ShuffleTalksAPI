@@ -7,8 +7,8 @@ const commentsSchema = new mongoose.Schema({
     userId: String,
     username: String, 
     text: String,
-    quote: { _id: String, username: String, userId: String, text: String },
-    likes: [{userId: String}] },
+    quotes: [{ commentId: String, username: String, userId: String, text: String }],
+    likes: [{ userId: String, username: String }] },
     { timestamps: { createdAt: 'created_at', updatedAt: 'updated_at'}}
     )
 

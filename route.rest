@@ -59,8 +59,9 @@ POST http://localhost:8080/post
 Content-Type: application/json
 
 {
-    "text": "TJEK MINE FEDE TING",
-    "userId": "0001"
+    "text": "Se mit nye, fede sæt",
+    "username": "SpørgeSøren",
+    "userId": "628e3c0ef24148cf460a1671"
 }
 
 ###
@@ -69,7 +70,7 @@ DELETE http://localhost:8080/post
 Content-Type: application/json
 
 {
-    "postId": "6284d662370e6116e840fb1f"
+    "postId": "6288eca92f5dc7f1a8f76e4f"
 }
 
 ###
@@ -97,9 +98,10 @@ POST http://localhost:8080/comment
 Content-Type: application/json
 
 {
-    "postId": "6288eca92f5dc7f1a8f76e4f",
-    "text": "Et andet svar",
-    "userId": "0002"
+    "postId": "628f71c16c4c10df3b72be2f",
+    "text": "For Søren det er flot, mand!!",
+    "username": "OleLukøje",
+    "userId": "628f692d7166c365f58c3c87"
 }
 
 ###
@@ -141,13 +143,14 @@ POST http://localhost:8080/comment/quote
 Content-Type: application/json 
 
 {
-    "postId": "6288eca92f5dc7f1a8f76e4f",
-    "quotetCommentId": "6288ed052f5dc7f1a8f76e56",
-    "quotetCommentText": "Noget helt nyt",
-    "quotetCommentUserId": "12367531267",
-    "quotedCommentUsername": "Overlord",
+    "postId": "628f71c16c4c10df3b72be2f",
+    "quotetCommentId": "62908b0b6a359083a669c02f",
+    "quotetCommentText": "Yes sir",
+    "quotetCommentUserId": "628e3c0ef24148cf460a1671",
+    "quotedCommentUsername": "SpørgeSøren",
     "newCommentText": "Yes sir",
-    "newCommentUserId": "3128763876123"
+    "newCommentUserId": "628e3c0ef24148cf460a1671",
+    "newCommentUsername": "SpørgeSøren"
 }
 
 ###

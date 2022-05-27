@@ -72,12 +72,21 @@ router.post('/comment/quote', getPost, async(req, res) => {
     try {
         const commentsArray = res.post.comments
         const quotedComment = commentsArray.find(comment => comment._id.equals(req.body.quotetCommentId))
+        console.log(quotedComment)
         
         const comment = {
             text: req.body.newCommentText,
+            username: req.body.newCommentUsername,
             userId: req.body.newCommentUserId,
-            quote: { _id: req.body.quotetCommentId, username: req.body.quotedCommentUsername, userId: req.body.quotetCommentUserId, text: req.body.quotetCommentText }
+            quotes: []
         }
+        const quote = {
+            commentId: req.body.quotetCommentId,
+            username: req.body.quotedCommentUsername,
+            userId: req.body.quotetCommentUserId,
+            text: req.body.quotetCommentText
+        }
+        comment.quotes.push(...quotedComment.quotes, quote) 
         res.post.comments.push(comment)
         const newPost = await res.post.save()
         res.status(201).json(newPost)
