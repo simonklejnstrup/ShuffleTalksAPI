@@ -2,6 +2,7 @@ const express = require('express')
 const validator = require('validator');
 const mongoose = require('mongoose') 
 const Post = require('../model/post')
+const User = require('../model/user')
 
 mongoose.connect(process.env.MONGODB_URI, {useNewUrlParser: true} || 'mongodb://localhost/shuffletalk')
 const db = mongoose.connection
@@ -31,7 +32,7 @@ router.get('/post', getPost, (req, res) => {
 
 
 // Creating one
-router.post('/post', async (req, res) => {
+router.post('/post', getUser, async (req, res) => {
 
     const post = new Post()
     const comment = {
@@ -41,6 +42,11 @@ router.post('/post', async (req, res) => {
     }
     post.comments.push(comment)
     try {
+        // Increment postcount for user
+        const filter = { _id: req.body.userId }
+        const update = { $inc: { postCount: 1} }
+        user = await User.updateOne(filter, update)
+
         const newPost = await post.save()
         res.status(201).json(newPost)
     } catch (error) {
@@ -86,6 +92,21 @@ async function getPost(req, res, next) {
     res.post = post
     next()
 }
+
+async function getUser(req, res, next) {
+    let user
+    try {
+        user = await User.findById(req.body.userId)
+        if (user == null) {
+            return res.status(404).json({message: 'Could not find user'})
+        } 
+    } catch (error) {
+        return res.status(500).json({message : error.message})
+    }
+    res.user = user
+    next()
+}
+
 
 
 module.exports = router

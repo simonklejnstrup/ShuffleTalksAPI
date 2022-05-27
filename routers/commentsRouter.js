@@ -1,6 +1,7 @@
 const express = require('express')
 const mongoose = require('mongoose') 
 const Post = require('../model/post')
+const User = require('../model/user')
 const { ObjectId } = require('mongodb');
 
 mongoose.connect(process.env.MONGODB_URI, {useNewUrlParser: true} || 'mongodb://localhost/shuffletalk')
@@ -9,7 +10,7 @@ const router = express.Router();
 
 
 // Creating new comment
-router.post('/comment', getPost, async (req, res) => {
+router.post('/comment', getPost, getUser, async (req, res) => {
 
     const comment = {
         text: req.body.text,
@@ -18,6 +19,13 @@ router.post('/comment', getPost, async (req, res) => {
     }
     try {
         res.post.comments.push(comment)
+
+        // Increment postcount for user
+        // const filter = { _id: req.body.userId }
+        // const update = { $inc: { postCount: 1} }
+        // user = await User.updateOne(filter, update)
+
+        
         const newPost = await res.post.save()
         res.status(201).json(newPost)
     } catch (error) {
@@ -43,7 +51,8 @@ router.post('/comment/like', getPost, async(req, res) => {
     
     try {
         const likedComment = res.post.comments.find(comment => comment._id.equals(req.body.commentId))
-        likedComment.likes.push({ "userId": req.body.userId})
+        likedComment.likes.push({   "userId": req.body.userId,
+                                    "username": req.body.username})
 
         const newPost = await res.post.save()
         res.status(201).json(newPost)
@@ -72,7 +81,6 @@ router.post('/comment/quote', getPost, async(req, res) => {
     try {
         const commentsArray = res.post.comments
         const quotedComment = commentsArray.find(comment => comment._id.equals(req.body.quotetCommentId))
-        console.log(quotedComment)
         
         const comment = {
             text: req.body.newCommentText,
@@ -111,20 +119,21 @@ async function getPost(req, res, next) {
     next()
 }
 
-// Util
-
-async function incrementPostcount(username) {
-
-    await connectDB();
-
-    const filter = { username: username };
-
-    const update = { $inc: { postCount: 1} };
-
-    const dbResponse = await collection.updateOne(filter, update);
-
-    return dbResponse;
+async function getUser(req, res, next) {
+    let user
+    try {
+        user = await User.findById(req.body.userId)
+        if (user == null) {
+            return res.status(404).json({message: 'Could not find user'})
+        } 
+    } catch (error) {
+        return res.status(500).json({message : error.message})
+    }
+    res.user = user
+    next()
 }
+
+
 
 
 module.exports = router
