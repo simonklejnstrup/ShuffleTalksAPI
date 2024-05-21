@@ -26,7 +26,7 @@ Before running the server, ensure you have the following installed:
    cd <project_directory>
    ```
 
-Replace <project_directory> with the actual path to your project directory.
+   Replace <project_directory> with the actual path to your project directory.
 
 3. **Create a .env file**:
 
@@ -40,37 +40,42 @@ Replace <project_directory> with the actual path to your project directory.
 
 5. **Install dependencies:**
 
-Before running the server, install all the required dependencies. In the terminal, run:
+   Before running the server, install all the required dependencies. In the terminal, run:
 
-    ```
-    npm install
-    ```
+   ```
+   npm install
+   ```
 
-This command will read the **'package.json'** file and install the necessary packages.
+   This command will read the **'package.json'** file and install the necessary packages.
 
 5. **Run the server:**
 
-Once the dependencies are installed and your .env file is configured, you can start the server using the following command:
+   Once the dependencies are installed and your .env file is configured, you can start the server using the
+   following command:
 
-    ```
-    node server.js
-    ```
+   ```
+   node server.js
+   ```
 
-    This will execute the server.js file and start the server.
+   This will execute the server.js file and start the server.
 
-6. **Access the server:**
+7. **Access the server:**
 
-    After running the server, it should be accessible at http://localhost:<port>. By default, the port is set to 8080 unless specified otherwise in the .env file.
+   After running the server, it should be accessible at http://localhost:<port>. By default, the port is set to
+   8080 unless specified otherwise in the .env file.
 
 # Additional Notes
 
-    - **Nodemon:** For development purposes, you might want to use nodemon which automatically restarts the server when file changes in the directory are detected.
+   - **Nodemon:** For development purposes, you might want to use nodemon which automatically restarts the server
+     when file changes in the directory are detected.
 
-    ```
-    npm install -g nodemon
-    nodemon server.js
-    ```
+   ```
+   npm install -g nodemon
+   nodemon server.js
+   ```
 
-    **MongoDB Connection:** Ensure that the MongoDB instance specified in MONGODB_URI is running and accessible. If you are using a cloud-based MongoDB service, make sure your connection string is correctly formatted and contains the correct credentials.
+   **MongoDB Connection:** Ensure that the MongoDB instance specified in MONGODB_URI is running and accessible. If
+   you are using a cloud-based MongoDB service, make sure your connection string is correctly formatted and
+   contains the correct credentials.
 
 By following these steps, you should be able to successfully run the server defined in server.js.
