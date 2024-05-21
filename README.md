@@ -20,25 +20,25 @@ Before running the server, ensure you have the following installed:
 
 2. **Navigate to the project directory**:
 
-   Change your working directory to the project's root directory where server.js is located:
+   Change your working directory to the project's root directory where **'server.js'** is located:
 
    ```
    cd <project_directory>
    ```
 
-   Replace <project_directory> with the actual path to your project directory.
+   Replace ***<project_directory>'** with the actual path to your project directory.
 
 3. **Create a .env file**:
 
-   In the root of your project directory, create a file named .env and add your environment variables. At a
-   minimum, you need to define the MONGODB_URI and optionally the PORT:
+   In the root of your project directory, create a file named **'.env'** and add your environment variables. At a
+   minimum, you need to define the **'MONGODB_URI'** and optionally the **'PORT'**:
 
    ```
    MONGODB_URI=mongodb://localhost:27017/mydatabase
    PORT=3000
    ```
 
-5. **Install dependencies:**
+4. **Install dependencies:**
 
    Before running the server, install all the required dependencies. In the terminal, run:
 
@@ -50,23 +50,24 @@ Before running the server, ensure you have the following installed:
 
 5. **Run the server:**
 
-   Once the dependencies are installed and your .env file is configured, you can start the server using the
+   Once the dependencies are installed and your **'.env'** file is configured, you can start the server using the
    following command:
 
    ```
    node server.js
    ```
 
-   This will execute the server.js file and start the server.
+   This will execute the **'server.js'** file and start the server.
 
 7. **Access the server:**
 
-   After running the server, it should be accessible at http://localhost:<port>. By default, the port is set to
-   8080 unless specified otherwise in the .env file.
+   After running the server, it should be accessible at **'http://localhost:<port>'**. By default, the port is set
+   to
+   **'8080'** unless specified otherwise in the ***.env'** file.
 
 # Additional Notes
 
-   - **Nodemon:** For development purposes, you might want to use nodemon which automatically restarts the server
+   - **Nodemon:** For development purposes, you might want to use **'nodemon'** which automatically restarts the server
      when file changes in the directory are detected.
 
    ```
@@ -74,8 +75,8 @@ Before running the server, ensure you have the following installed:
    nodemon server.js
    ```
 
-   **MongoDB Connection:** Ensure that the MongoDB instance specified in MONGODB_URI is running and accessible. If
+   **MongoDB Connection:** Ensure that the MongoDB instance specified in **'MONGODB_URI'** is running and accessible. If
    you are using a cloud-based MongoDB service, make sure your connection string is correctly formatted and
    contains the correct credentials.
 
-By following these steps, you should be able to successfully run the server defined in server.js.
+By following these steps, you should be able to successfully run the server defined in **'server.js'**.
