@@ -15,7 +15,7 @@ Before running the server, ensure you have the following installed:
    
    Open your terminal or command prompt and run the following command to clone the repository:
    ```
-   git clone [<repository_url>](https://github.com/simonklejnstrup/ShuffleTalksAPI)
+   git clone https://github.com/simonklejnstrup/ShuffleTalksAPI
    ```
 
 2. **Navigate to the project directory**:
