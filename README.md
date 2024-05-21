@@ -20,24 +20,25 @@ Before running the server, ensure you have the following installed:
 
 2. **Navigate to the project directory**:
 
-    Change your working directory to the project's root directory where server.js is located:
+   Change your working directory to the project's root directory where server.js is located:
 
-    ```
-    cd <project_directory>
-    ```
+   ```
+   cd <project_directory>
+   ```
 
 Replace <project_directory> with the actual path to your project directory.
 
 3. **Create a .env file**:
 
-In the root of your project directory, create a file named .env and add your environment variables. At a minimum, you need to define the MONGODB_URI and optionally the PORT:
+   In the root of your project directory, create a file named .env and add your environment variables. At a
+   minimum, you need to define the MONGODB_URI and optionally the PORT:
 
-    ```
-    MONGODB_URI=mongodb://localhost:27017/mydatabase
-    PORT=3000
-    ```
+   ```
+   MONGODB_URI=mongodb://localhost:27017/mydatabase
+   PORT=3000
+   ```
 
-4. **Install dependencies:**
+5. **Install dependencies:**
 
 Before running the server, install all the required dependencies. In the terminal, run:
 
