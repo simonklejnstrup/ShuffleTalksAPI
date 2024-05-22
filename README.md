@@ -1,4 +1,30 @@
-# Running the Server
+# Shuffle Talks API
+
+> RESTful API meant to provide the ShuffleTalk Android app with data..
+
+## Features
+
+- Create, get, update or delete user
+- Login/logout
+- Create, get, update or delete user
+- Give a post a like or remove a like already given.
+
+## Technologies Used
+
+- Node.js
+- Express
+- Mongo DB
+- Mongoose
+
+## Authors
+
+- **Simon Klejnstrup** - [simonklejnstrup](https://github.com/simonklejnstrup)
+
+## License
+
+This project is licensed under the [MIT] License - see the [LICENSE.md](LICENSE.md) file for details.
+
+# Getting Started
 
 This guide provides instructions on how to run the server defined in the `server.js` file located in the root of the project.
 
