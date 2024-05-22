@@ -14,6 +14,7 @@
 
 - Node.js
 - Express
+- JavaScript
 - Mongo DB
 - Mongoose
 
