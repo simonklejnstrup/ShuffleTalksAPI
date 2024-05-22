@@ -1,6 +1,6 @@
 # Shuffle Talks API
 
-> RESTful API meant to provide the ShuffleTalk Android app with data..
+> RESTful API meant to provide the ShuffleTalk Android app with data.
 
 ## Features
 
