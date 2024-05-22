@@ -6,8 +6,9 @@
 
 - Create, get, update or delete user
 - Login/logout
-- Create, get, update or delete user
-- Give a post a like or remove a like already given.
+- Create, get, update or delete comment
+- Create, get, update or delete post
+- Give a post a like or remove a like already given
 
 ## Technologies Used
 
